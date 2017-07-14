@@ -35,7 +35,7 @@ var stateMain = {
         this.weapon = this.game.add.weapon(1000, 'bala');
         this.weapon.bulletKillType = Phaser.Weapon.kill_LIFESPAN;
        this.weapon.bulletLifespan = 200;
-      this.weapon.bullSpeed = 600;
+      this.weapon.bullSpeed = 400;
        this.weapon.fireRate = 100;
 
     //  Wrap bullets around the world bounds to the opposite side
@@ -64,8 +64,8 @@ var stateMain = {
 '!                        o                             o                                 ',
 '!                                        o                                 o             ',                
 '!            o     x           x                x      x                   x           ',
-'!         x   x         x            x     !        !            o                       ',
-'!                    !       !      !                            x                       ',
+'!         x   x         x            x             !            o                       ',
+'!                    !       !      !       !                     x                       ',
 '!                                                                                       ',
 '!                                        !      m         !                              ',
 '!             o             O                                                          ',
