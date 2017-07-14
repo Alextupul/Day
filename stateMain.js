@@ -51,6 +51,7 @@ var stateMain = {
     this.fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 
        var level = [
+<<<<<<< HEAD
            
 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
 '!                !                          ',
@@ -83,6 +84,41 @@ var stateMain = {
 '!                                           ',
 '!                                           ',
 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+=======
+'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+'!                                                                                        !',
+'!                                                                                        !',
+'!                          o                                                             !',
+'!                                    o                                                   !',
+'!           o                                                                            !',
+'!   x   x             o   x                                                              !',
+'!           !!!!    x         !     x    !     x     !     x       !    x   !   x   !    !',            
+'!                                                                                        !',
+'!                                                                                        !',
+'!                        o                             o                                 ',
+'!                                        o                                 o             ',                
+'!            o     x           x                x      x                   x           ',
+'!         x   x         x            x     !        !            o                       ',
+'!                    !       !      !                            x                       ',
+'!                                                                                       ',
+'!                                        !                !                              ',
+'!             o             O                                                          ',
+'!                                                    O                                  ',
+'!     xx           x         x        O           X             o  !         X       ',
+'!              !                                                  X                     ',
+'!                                        x      !!                                     ',
+'!                                                                                      ',
+'!                                                                                      ',
+'!     o              o                                   0                               ',
+'!     x              x                      o             x                               ',
+'!                                       x                                             ',
+'!                       !!!   o     !!!                                                 ',
+'!            o                x                                                         ',
+'!            x                                                                          ',
+'!                    o                                                                  ',
+'!   ooo      !     o    ! o                                                               ',
+'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+>>>>>>> master
 ];
         // Create the level by going through the array
         
