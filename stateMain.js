@@ -63,7 +63,7 @@ var stateMain = {
 '!                                                                                        !',
 '!                        o                             o                                 ',
 '!                                        o                                 o             ',                
-'!            o     x           x                x      x                   x           ',
+'!            o     x           x                x          x                   x           ',
 '!         x   x         x            x     !        !            o                       ',
 '!                    !       !      !                            x                       ',
 '!                                                                                       ',
