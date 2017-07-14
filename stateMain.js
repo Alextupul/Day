@@ -175,7 +175,7 @@ this.momias.add(momia);
         
         if(this.cursor.up.isDown && this.robot.body.touching.down){
 //               this.robot.body.velocity.y = -300;
-            this.robot.body.velocity.y = -400;
+            this.robot.body.velocity.y = -300;
             this.robot.play("jump");
             
         
