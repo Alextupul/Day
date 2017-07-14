@@ -39,8 +39,7 @@ var stateMain = {
        this.weapon.fireRate = 100;
 
     //  Wrap bullets around the world bounds to the opposite side
-   this.weapon.bulletWorldWrap = true;
-
+   
     
     //  Tell the Weapon to track the 'player' Sprite
     //  With no offsets from the position
