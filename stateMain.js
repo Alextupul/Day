@@ -26,13 +26,13 @@ var stateMain = {
         this.robot.animations.add('jump',[18,19,20,21,22,23,24,25,26], 12, true);
        // this.coin.animations.add('spin', [0,1,2,3,4,5], 12, true);
        // this.coin.play('spin');
-        
+        this.momias = this.game.add.group();
         this.walls = this.game.add.group();
         this.coins = this.game.add.group();
         this.lavas = this.game.add.group();
         this.game.camera.follow(this.robot);
         
-        this.weapon = this.game.add.weapon(30, 'bala');
+        this.weapon = this.game.add.weapon(1000, 'bala');
         this.weapon.bulletKillType = Phaser.Weapon.kill_LIFESPAN;
        this.weapon.bulletLifespan = 200;
       this.weapon.bullSpeed = 600;
@@ -56,7 +56,7 @@ var stateMain = {
 '!                                                                                        !',
 '!                          o                                                             !',
 '!                                    o                                                   !',
-'!           o                                                                            !',
+'!           o                                    m                                       !',
 '!   x   x             o   x                                                              !',
 '!           !!!!    x         !     x    !     x     !     x       !    x   !   x   !    !',            
 '!                                                                                        !',
@@ -67,7 +67,7 @@ var stateMain = {
 '!         x   x         x            x     !        !            o                       ',
 '!                    !       !      !                            x                       ',
 '!                                                                                       ',
-'!                                        !                !                              ',
+'!                                        !      m         !                              ',
 '!             o             O                                                          ',
 '!                                                    O                                  ',
 '!     xx           x         x        O           X             o  !         X       ',
@@ -80,9 +80,9 @@ var stateMain = {
 '!                                       x                                             ',
 '!                       !!!   o     !!!                                                 ',
 '!            o                x                                                         ',
-'!            x                                                                          ',
-'!                    o                                                                  ',
-'!   ooo      !     o    ! o                                                               ',
+'!            x                                           m                               ',
+'!                    o                                                 m                 ',
+'!   ooo      !     o    ! o                                                              ',
 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
 
 ];
@@ -111,6 +111,14 @@ else if (level[i][j] == '!') {
 var lava = this.game.add.sprite(30+20*j, 30+20*i, 'lava');
 this.lavas.add(lava);
 }
+    else if (level[i][j] == 'm') {
+var momia = this.game.add.sprite(30+20*j, 30+20*i, 'momia');
+        momia.animations.add('walk', [0,1,2,3,4,5,7,8,9], 12, true);
+    momia.animations.add('back',[10,11,12,13,1,15,16], 12, true);
+momia.play('walk');
+        momia.play('back');       
+this.momias.add(momia);
+    }
 }
 }
                 
@@ -124,6 +132,8 @@ this.lavas.add(lava);
         this.game.physics.arcade.collide(this.robot, this.walls);
         this.game.physics.arcade.collide(this.robot,this.coins,this.takeCoin, null, this);
         this.game.physics.arcade.overlap(this.robot,this.lavas,this.restart, null, this);
+        this.game.physics.arcade.collide(this.robot,this.momias,this.restart, null, this);
+        this.game.physics.arcade.collide(this.weapon.bullets,this.momias,this.killMomia, null, this);
     this.game.world.bringToTop(this.robot);
             this.game.world.bringToTop(this.text);
 
@@ -185,13 +195,17 @@ this.lavas.add(lava);
     render: function(){
         this.weapon.debug();
     },
-takeCoin: function(player, coin){
+takeCoin: function(robot, coin){
        coin.kill();  
 this.score +=1;
 this.text.text= "Score:" + this.score;
     
 },
+    killMomia: function(bala, momia){
+       momia.kill();  
+
     
+},
     restart: function(){
         this.game.state.start("GameOver");
         

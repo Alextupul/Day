@@ -8,6 +8,7 @@ var preload = {
         this.game.load.spritesheet('robot', 'robot.png', 80, 111);
         this.game.load.image("background", "campo.png");
         this.game.load.spritesheet('coin', 'moneda.png',26, 30);
+        this.game.load.spritesheet('momia','momia.png', 37, 45);
        //this.game.load.image('player','player.png');
       this.game.load.image('wall', 'cloud.png', 20, 20);
        this.game.load.image('lava', 'lava.png');
@@ -15,6 +16,8 @@ var preload = {
        this.game.load.image('play', 'play.png');
        this.game.load.image('gameOver', 'GameOver.png');
         this.game.load.image('bala', 'bala.png');
+        this.game.load.image('instrucciones', 'instrucciones.png');
+        this.game.load.image('next', 'next.png');
        //this.game.load.image('backpng', 'back.png');
     },
       
