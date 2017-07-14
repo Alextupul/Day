@@ -44,7 +44,7 @@ var stateMain = {
     //  Tell the Weapon to track the 'player' Sprite
     //  With no offsets from the position
     //  But the 'true' argument tells the weapon to track sprite rotation
-   this.weapon.trackSprite(this.robot, 0, 0, true);
+   this.weapon.trackSprite(this.robot, 40, 40, true);
 
 
     this.fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
