@@ -1,5 +1,5 @@
 var stateMain = {
-    
+
     
     create: function (){
         this.score = 0;
@@ -32,7 +32,26 @@ var stateMain = {
         this.lavas = this.game.add.group();
         this.game.camera.follow(this.robot);
         
+        this.weapon = this.game.add.weapon(30, 'bala');
+        this.weapon.bulletKillType = Phaser.Weapon.kill_LIFESPAN;
+       this.weapon.bulletLifespan = 200;
+      this.weapon.bullSpeed = 600;
+       this.weapon.fireRate = 100;
+
+    //  Wrap bullets around the world bounds to the opposite side
+   this.weapon.bulletWorldWrap = true;
+
+    
+    //  Tell the Weapon to track the 'player' Sprite
+    //  With no offsets from the position
+    //  But the 'true' argument tells the weapon to track sprite rotation
+   this.weapon.trackSprite(this.robot, 0, 0, true);
+
+
+    this.fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
+
        var level = [
+           
 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
 '!                !                          ',
 '!                                           ',
@@ -144,12 +163,26 @@ this.lavas.add(lava);
         
         if(this.cursor.up.isDown && this.robot.body.touching.down){
 //               this.robot.body.velocity.y = -300;
-            this.robot.body.velocity.y = -300;
+            this.robot.body.velocity.y = -400;
             this.robot.play("jump");
             
         
         }
+         if (this.fireButton.isDown)
+    {
+       this.weapon.fire();
+        
+    }
+
+        //if(this.weapon.fire()> gameworld)
+        
+    //game.world.wrap(sprite, 16);
+        
     }, 
+    
+    render: function(){
+        this.weapon.debug();
+    },
 takeCoin: function(player, coin){
        coin.kill();  
 this.score +=1;

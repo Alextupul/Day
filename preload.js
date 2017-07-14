@@ -14,6 +14,7 @@ var preload = {
        this.game.load.image('gameTitle', "title.png");
        this.game.load.image('play', 'play.png');
        this.game.load.image('gameOver', 'GameOver.png');
+        this.game.load.image('bala', 'bala.png');
        //this.game.load.image('backpng', 'back.png');
     },
       
