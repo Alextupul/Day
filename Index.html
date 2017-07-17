@@ -13,7 +13,11 @@
     <script>
         
         (function() {
+
             var game = new Phaser.Game(1500, 750, Phaser.CANVAS, "game");
+
+            var game = new Phaser.Game(1500, 700, Phaser.CANVAS, "game");
+
             game.state.add("State",stateMain);
             game.state.add("Boot", boot);
             game.state.add("Preload", preload);
