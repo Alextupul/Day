@@ -11,7 +11,7 @@ var stateMain = {
         this.cursor = this.game.input.keyboard.createCursorKeys(); 
         this.speed=2;
         
-        this.tileSprite = this.game.add.tileSprite(0, 0, 1500, 700, 'background');
+        this.tileSprite = this.game.add.tileSprite(0, 0, 1500, 750, 'background');
         
         
         this.robot = this.game.add.sprite(100,0,"robot");
@@ -41,65 +41,52 @@ var stateMain = {
     //  Wrap bullets around the world bounds to the opposite side
    
     
-    //  Tell the Weapon to track the 'player' Sprite
-    //  With no offsets from the position
-    //  But the 'true' argument tells the weapon to track sprite rotation
-   this.weapon.trackSprite(this.robot, 40, 40, true);
+//    //  Tell the Weapon to track the 'player' Sprite
+//    //  With no offsets from the position
+//    //  But the 'true' argument tells the weapon to track sprite rotation
+//   this.weapon.trackSprite(this.robot, 40, 40, true);
 
 
     this.fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 
        var level = [
-
 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-'!                                                                                        !',
-'!                                                                                        !',
+'!                                                                                        ',
+'!                                                                                         !',
 '!                          o                                                             !',
 '!                                    o                                                   !',
 '!           o                                    m                       m         o     !',
 '!   x   x             o   x                                                              !',
-'!           !!!!    x         !     x    !     x     !     x       !    x   !   x   !    !',            
-'!                                                                                        !',
+'!           !!!!             !     x    !     x     !     x       !    x   !   x   !    !',       
+'!                   x                                                                    !',
 '!                                                                                        !',
 '!                        o                             o                                 ',
-'!                                        o                                 o             ',                
-'!            o     x           x                x      x                   x             ',
-'!         x   x         x            x             !            o                        ',
-'!                    !       !      !       !                     x                      ',
+'!            o                            o                                 o            ',         
+'!                  x           x                x      x                   x             ',
+'!       x               x            x             !            o                        ',
+'!             x       !       !      !       !                     x                      ',
 '!                                                                                        ',
 '!                                        !      m         !                              ',
-'!             o             O                                                          ',
-'!                                                    O                                  ',
-'!     xx           x         x    m    O           X             o  !         X       ',
-'!              !                                                  X                     ',
-'!                                        x      !!                                     ',
-'!                                                                                      ',
-'!                               m                                                  o     ',
-'!     o              o                                   0                               ',
-'!     x              x                      o             x           m                    ',
-'!                                       x                                             ',
-'!                       !!!   o     !!!                                   x           ',
-'!            ox                x                                                         ',
-'!         x                                            m                               ',
-'!                    o                                                 m                 ',
-'!   ooo      !     o    ! o                                                              ',
 '!             o             O                                                            ',
 '!                                                    O                                   ',
-'!     xx           x         x    m    O           X             o  !         X          ',
-'!              !                                                  X                      ',
-'!                                        x      !!                                       ',
+'!     xx           x         x    m    O           x             o   !         x         ',
+'!              !                                                  x                     ',
+'!                                        x      !!                                      ',
+'!                    o                                                                   ',
+'!                    o          m                         o                         o     ',
+'!     o                                      o                                            ',
+'!                    x                                    x           m                  ',
+'!     x                                   x                                                ',
+'!            o           !!!   o     !!!                                   x              ',
+'!               x                x                                                         ',
+'!         x                                            m                                 ',
+'!                    o                                                 m                 ',
+'!   ooo      !     o    ! o                                                              ',
+'!             o             o                         o                                   ',
 '!                                                                                        ',
-'!                               m                                                        ',
-'!     o              o                                   0                               ',
-'!     x              x                      o             x           m                  ',
-'!                                       x                                                ',
-'!                       !!!   o     !!!                                                  ',
-'!            o x                x                                                        ',
-'!                                                     m                                  ',
-'!          x          o                     x                           m                ',
+'!     xx           x         x    m    o           x             o  !         x          ',
 '!                                                                                        ',
-'!           ooo      !     o    ! o                                                      ',
-'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ',
 
 ];
         // Create the level by going through the array
@@ -151,7 +138,12 @@ this.momias.add(momia);
         this.game.physics.arcade.collide(this.robot,this.momias,this.restart, null, this);
         this.game.physics.arcade.collide(this.weapon.bullets,this.momias,this.killMomia, null, this);
     this.game.world.bringToTop(this.robot);
+    this.game.world.bringToTop(this.walls);
             this.game.world.bringToTop(this.text);
+        //  Tell the Weapon to track the 'player' Sprite
+    //  With no offsets from the position
+    //  But the 'true' argument tells the weapon to track sprite rotation
+   this.weapon.trackSprite(this.robot, 40, 40, true);
 
 
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
@@ -161,6 +153,8 @@ this.momias.add(momia);
         this.robot.play("run");
         this.robot.scale.setTo(-0.5,0.5);;
         this.tileSprite.autoScroll(-100,0);
+        this.weapon.fireAngle = Phaser.ANGLE_LEFT;
+        console.log(this.weapon.fireAngle);
     }
     else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
     {
@@ -169,6 +163,8 @@ this.momias.add(momia);
         this.robot.play("run");
         this.robot.scale.setTo(0.5,0.5);
         this.tileSprite.autoScroll(100,0);
+        this.weapon.fireAngle = Phaser.ANGLE_RIGHT;
+        console.log(this.weapon.fireAngle);
     }
 //        else
 //    if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
