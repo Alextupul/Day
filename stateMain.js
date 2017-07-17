@@ -97,8 +97,6 @@ var stateMain = {
 '!            o x                x                                                        ',
 '!                                                     m                                  ',
 '!          x          o                     x                           m                ',
-'!                                                                                        ',
-'!           ooo      !     o    ! o                                                      ',
 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
 
 ];
