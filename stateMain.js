@@ -30,7 +30,6 @@ var stateMain = {
         this.walls = this.game.add.group();
         this.coins = this.game.add.group();
         this.lavas = this.game.add.group();
-        this.game.camera.follow(this.robot);
         
         this.weapon = this.game.add.weapon(1000, 'bala');
         this.weapon.bulletKillType = Phaser.Weapon.kill_LIFESPAN;
@@ -128,7 +127,8 @@ this.momias.add(momia);
 }
                 
        
-        
+                this.game.camera.follow(this.robot);
+
     },
     
     update: function (){
@@ -145,7 +145,7 @@ this.momias.add(momia);
         //  Tell the Weapon to track the 'player' Sprite
     //  With no offsets from the position
     //  But the 'true' argument tells the weapon to track sprite rotation
-   this.weapon.trackSprite(this.robot, 40, 40, true);
+   this.weapon.trackSprite(this.robot, 5, 40, false);
 
 
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
