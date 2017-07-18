@@ -30,7 +30,6 @@ var stateMain = {
         this.walls = this.game.add.group();
         this.coins = this.game.add.group();
         this.lavas = this.game.add.group();
-        this.game.camera.follow(this.robot);
         
         this.weapon = this.game.add.weapon(1000, 'bala');
         this.weapon.bulletKillType = Phaser.Weapon.kill_LIFESPAN;
@@ -84,11 +83,9 @@ var stateMain = {
 '!   ooo      !     o    ! o                                                              ',
 '!             o             o                         o                                   ',
 '!                                                                                        ',
-<<<<<<< HEAD
 '!     xx           x         x    m    o           x             o  !         x          ',
 '!                                                                                        ',
 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ',
-=======
 '!                               m                                                        ',
 '!     o              o                                   0                               ',
 '!     x              x                      o             x           m                  ',
@@ -98,7 +95,6 @@ var stateMain = {
 '!                                                     m                                  ',
 '!          x          o                     x                           m                ',
 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
->>>>>>> c85b95cdd8fe393a5fe5c80d924c3863ae69395d
 
 ];
         // Create the level by going through the array
@@ -138,7 +134,8 @@ this.momias.add(momia);
 }
                 
        
-        
+                this.game.camera.follow(this.robot);
+
     },
     
     update: function (){
@@ -155,7 +152,7 @@ this.momias.add(momia);
         //  Tell the Weapon to track the 'player' Sprite
     //  With no offsets from the position
     //  But the 'true' argument tells the weapon to track sprite rotation
-   this.weapon.trackSprite(this.robot, 40, 40, true);
+   this.weapon.trackSprite(this.robot, 5, 40, false);
 
 
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
