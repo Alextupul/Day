@@ -84,21 +84,11 @@ var stateMain = {
 '!   ooo      !     o    ! o                                                              ',
 '!             o             o                         o                                   ',
 '!                                                                                        ',
-<<<<<<< HEAD
+
 '!     xx           x         x    m    o           x             o  !         x          ',
 '!                                                                                        ',
 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ',
-=======
-'!                               m                                                        ',
-'!     o              o                                   0                               ',
-'!     x              x                      o             x           m                  ',
-'!                                       x                                                ',
-'!                       !!!   o     !!!                                                  ',
-'!            o x                x                                                        ',
-'!                                                     m                                  ',
-'!          x          o                     x                           m                ',
-'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
->>>>>>> c85b95cdd8fe393a5fe5c80d924c3863ae69395d
+
 
 ];
         // Create the level by going through the array
